@@ -1,0 +1,112 @@
+.boleto {
+	width: 765px;
+	margin: 0 auto;
+	font-family: Arial;
+	padding-top: 50px;
+	font-size: 8pt;
+}
+.boleto th,
+.boleto .instrucoes td label {
+	font-size: 7.8pt;
+}
+.boleto .cabecalho td:nth-last-child(2),
+.boleto .cabecalho td:last-child {
+	font-size: 13.2pt;
+}
+.boleto table { width: 100%; }
+.boleto table,
+.boleto th,
+.boleto td {
+    border-collapse: collapse;
+}
+.boleto th,
+.boleto td {
+	border: 2px solid black;
+}
+.boleto th {
+	text-align: left;
+    border-top: none;
+    border-bottom: none;
+    font-weight: normal;
+}
+.boleto td {
+    border-top: none;
+    padding: 5px 12px;
+    padding-bottom: 2px;
+    height: 11px;
+}
+.boleto td:last-child { width: 190px; }
+.boleto .demonstrativo .beneficiario td:last-child { width: 120px; }
+.boleto .demonstrativo .beneficiario td:nth-last-child(2) { width: 44px; }
+.boleto p.dica span:first-child { padding-right: 20px; }
+.boleto p.dica span:last-child { float: right; }
+.boleto td,
+.boleto .instrucoes tr:first-child td:first-child p,
+.boleto .ficha .dica span:nth-last-child(2) {
+	font-weight: bold;
+}
+.boleto th,
+.boleto p.dica,
+.boleto .separador p,
+.boleto .cabecalho td,
+.boleto .instrucoes td:last-child,
+.boleto .instrucoes tr:first-child td:first-child { 
+	padding: 0px 5px;
+}
+.boleto p.dica {
+    padding-top: 1px;
+    margin: 0px;
+}
+.boleto .demonstrativo { margin-bottom: 38px; }
+.boleto .separador {
+	border-bottom: 2px dotted #000;
+    text-decoration: none;
+    margin-bottom: 28px;
+}
+.boleto .separador p {
+	margin-bottom: 3px;
+	margin-top: 0px;
+	font-size: 10pt;
+	text-align: right;
+}
+.boleto .separador img { float: left; }
+.boleto .instrucoes td:last-child {
+	height: 30px;
+	width: 204px;
+}
+.boleto .instrucoes td>label,
+.boleto .instrucoes td div {
+	float: left;
+    height: 100%;
+    font-weight: normal;
+}
+.boleto .instrucoes td div p,
+.boleto .pagador p { margin: 4px 7px; }
+.boleto .instrucoes td div>label { font-size: 7.2pt; }
+.boleto .cabecalho img { height: 35px; }
+.boleto .cabecalho td:first-child {
+	text-align: left;
+	border-left: none;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width:1%;
+    white-space:nowrap;
+}
+.boleto .cabecalho td:nth-last-child(2) { text-align: center; }
+.boleto .cabecalho td:last-child {
+	border-right: none;
+	width: 500px;
+	text-align: right;
+}
+.boleto .cinza { background-color: #dadada; }
+.boleto .ficha { margin-bottom: 10px; }
+.boleto .ficha .pagador p span:last-child {
+	float: right;
+	padding-right: 140px;
+    font-weight: normal;
+}
+.boleto .codigobarras {
+	padding-left: 40px;
+    margin-bottom: -10px;
+}

@@ -1,0 +1,187 @@
+
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                                         INFORMACOES - 00001
+                                                               NORMA - 00001
+      ----------------------------------------------------------------------
+
+      01. APRESENTACAO..  eh  o  CONJUNTO DE  INFORMACOES  que  define  e
+          orienta  o intercambio entre bancos e as empresas, na prestacao
+          de  servicos bancarios. A padronizacao eh da FEBRABAN e adotada
+          por  todos  os  bancos, e qualquer alteracao das especificacoes
+          apresentadas  nestas  rotinas deverah ser aprovada  pelo  CNAB-
+          FEBRABAN.
+
+      02. SERVICOS BANCARIOS OFERECIDOS..                             /-/
+          a/ pagamentos de salarios, fornecedores, dividendos e  etc,  na
+             forma de credito em conta corrente ou DOC e pagamento   com
+             autenticacao.,
+
+          b/ liquidacao  de titulos em carteira de cobranca  /no  proprio
+             Banco/ e pagamento de titulos em  outros  bancos /no  banco
+             do cedente, via compensacao/.,
+
+          c/ geracao de extrato de conta para conciliacao bancaria.,
+
+          d/ informacoes  para  titulos em carteira de cobranca  /entrada
+             de titulos, pedido de baixa, etc./.,
+
+          e/ informacoes  ao  sacado dos titulos capturados  em  carteira
+             /bloqueto eletronico/.
+
+      03. CARACTERISTICAS DO ARQUIVO..
+          a/ Modalidade - registros fixos.,
+          b/ Tamanho dos registros - 240 bytes.,
+          c/ Tipos de registros..
+             I    - 0 /IGUAL/  Header de arquivo.,
+             II   - 1 /IGUAL/  Header de lote.,
+             III  - 3 /IGUAL/  Detalhe.,
+             IV   - 5 /IGUAL/  Trailer de lote.,
+             V    - 9 /IGUAL/  Trailer de arquivo.,
+          d/ Alinhamento  de  campos  numericos  -  sempre  a  direita  e
+             preenchidos com zeros a esquerda.,
+          e/ Alinhamento  de campos alfanumericos - sempre a  esquerda  e
+             preenchidos com brancos a direita.
+
+      04. COMPOSICAO DO ARQUIVO..
+          a/ Header de Arquivo.,
+          b/ Lotes de Servico / tipo de servico /forma de lancamento/.,
+          c/ Trailer de Arquivo.
+          OBS.. um  arquivo  pode conter lotes de servicos distintos.  Os
+                registros  Header  e  Trailer de arquivo  tem  composicao
+                fixa/padrao.
+
+      05. COMPOSICAO DO LOTE DE SERVICO..
+          a/ Um registro Header de lote.,
+          b/ Registro de detalhe /lancamento/.,
+          c/ Um registro de Trailer de lote.
+          OBS.. um  lote  de servico deve conter um unico tipo de servico
+                e uma unica forma de lancamento.
+
+      ----------------------------------------------------------------------
+      AREA  056/0005-20011841, DE 10.04.2001                       0001/0003
+      IMPRESSO EM 30-APR-2002, 14:18:53, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                                         INFORMACOES - 00001
+                                                               NORMA - 00001
+      ----------------------------------------------------------------------
+
+      06. O  registro de Header /1/ e Trailer /5/ de lote e os de Detalhe
+          /3/  sao compostos de campos fixos, comuns a todos os Tipos  de
+          Servicos   e  Formas  de  Lancamentos,  e  campos  especificos,
+          padroes  para  cada  um  dos Tipos  de  Servicos  e  Formas  de
+          Lancamentos.
+
+      07. Um  registro  de detalhe eh composto de 17 tipos  de  segmentos
+          definidos conforme o Tipo de Servico e a Forma de Lancamento.
+
+      08. Leiaute do arquivo..                                        /-/
+          REGISTRO DE HEADER DE ARQUIVO - Registro
+
+          LOTE.. CREDITO EM CONTA CORRENTE
+                Registro Header de lote
+                Registro Detalhe - Segmento A /Obrigatorio/
+                Registro Detalhe - Segmento B /Opcional/
+                Registro Detalhe - Segmento C /Opcional/
+                Registro Trailer de lote
+
+          LOTE.. PAGAMENTO ATRAVES DE CHEQUE, OP, DOC E PAGAMENTO
+                 COM AUTENTICACAO
+                Registro Header de lote
+                Registro Detalhe - Segmento A /Obrigatorio/
+                Registro Detalhe - Segmento B /Opcional/
+                Registro Detalhe - Segmento C /Opcional/
+                Registro Trailer de lote
+
+          LOTE.. EXTRATO CONTA CORRENTE PARA CONCILIACAO BANCARIA
+                Registro Header de lote
+                Registro Detalhe - Segmento E /Obrigatorio/
+                Registro Trailer de lote
+
+          LOTE.. LIQUIDACAO DE TITULOS EM CARTEIRA DE COBRANCA         /-/
+                Registro Header de lote
+                Registro Detalhe - Segmento J /Obrigatorio/
+                                   OU
+                Registro Trailer de lote
+
+          LOTE.. PAGAMENTOS DE TITULOS EM OUTROS BANCOS                /-/
+                Registro Header de lote
+                Registro Detalhe - Segmento J /Obrigatorio/
+                                   OU
+                Registro Trailer de lote
+
+          LOTE.. TITULOS EM CARTEIRA DE COBRANCA
+                Registro Header de lote
+                Registro Detalhe - Segmento P /Obrigatorio/
+                Registro Detalhe - Segmento Q /Obrigatorio/
+                Registro Detalhe - Segmento R /Opcional/
+                Registro Detalhe - Segmento S /Opcional/
+                Registro Detalhe - Segmento T /Obrigatorio/
+                Registro Detalhe - Segmento U /Obrigatorio/
+                Registro Trailer de lote
+      ----------------------------------------------------------------------
+      AREA  056/0005-20011841, DE 10.04.2001                       0002/0003
+      IMPRESSO EM 30-APR-2002, 14:18:53, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                                         INFORMACOES - 00001
+                                                               NORMA - 00001
+      ----------------------------------------------------------------------
+
+
+
+          LOTE.. TITULOS CAPTURADOS EM CARTEIRA /BLOQUETO ELETRONICO/
+                Registro Header de lote
+                Registro Detalhe - Segmento G /Obrigatorio/
+                Registro Detalhe - Segmento H /Opcional/
+                Registro Trailer de lote
+
+          REGISTRO TRAILER DE ARQUIVO - REGISTRO 9
+                                                                       /-/
+      09. As  notas e informacoes complementares apresentadas em codigos
+          alfanumericos  nos  leiautes  dos  arquivos estao esclarecidas
+          no titulo Quadros e Tabelas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ----------------------------------------------------------------------
+      AREA  056/0005-20011841, DE 10.04.2001                       0003/0003
+      IMPRESSO EM 30-APR-2002, 14:18:53, POR F0305510-ALBERTO FERREIRA BRI      IMPRESSO EM 30-APR-2002, 14:18:53, POR F0305510-ALBERTO FERREIRA BRI

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $titulo;?></title>
+	<meta http-equiv="content-type" content="IE=edge; text/html; charset=UTF-8" />
+	<style>
+		<?php echo $estilo;?>
+	</style>
+</head>
+<body>
+	<div class="boleto">
+		<div class="cabecalho">
+			<table class="tabela-topo">
+				<tr>
+					<td><img src="<?php echo $logo_embutido;?>"></td>
+					<td><?php echo $verificador;?></td>
+					<td><?php echo $linha_digitavel;?></td>
+				</tr>
+			</table>
+		</div>
+		<div class="demonstrativo">
+			<table class="beneficiario">
+				<tr>
+					<th>Beneficiário</th>
+					<th>Agência / Código do Beneficiário</th>
+					<th>Espécie</th>
+					<th>Quantidade</th>
+					<th>Nosso número</th>
+				</tr>
+				<tr>
+					<td><?php echo $beneficiario_nome;?></td>
+					<td><?php echo $agencia_codigo;?></td>
+					<td><?php echo $especie;?></td>
+					<td><?php echo $quantidade;?></td>
+					<td><?php echo $nosso_numero;?></td>
+				</tr>
+			</table>
+			<table class="numero-doc">
+				<tr>
+					<th>Número do documento</th>
+					<th><?php echo $cpf_cnpj_title;?></th>
+					<th>Vencimento </th>
+					<th>Valor documento</th>
+				</tr>
+				<tr>
+					<td><?php echo $numero_documento;?></td>
+					<td><?php echo $cpf_cnpj;?></td>
+					<td><?php echo $vencimento;?></td>
+					<td><?php echo $valor_documento;?></td>
+				</tr>
+			</table>
+			<table class="desconto">
+				<tr>
+					<th>(-) Desconto/Abatimentos</th>
+					<th>(-) Outras deduções</th>
+					<th>(+) Mora/Multa</th>
+					<th>(+) Outros acréscimos</th>
+					<th class="cinza">(=) Valor cobrado</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="cinza"></td>
+				</tr>
+			</table>
+			<table class="pagador">
+				<tr>
+					<th>Pagador</th>
+				</tr>
+				<tr>
+					<td>
+						<p><?php echo $cliente_nome_cpf;?></p>
+						<p><?php echo $cliente_endereco;?></p>
+					</td>
+				</tr>
+			</table>
+			<p class="dica"><span>Demonstrativo</span><span>Autenticação mecânica</span></p>
+		</div>
+		<div class="separador">
+			<p><img src="<?php echo $tesoura_embutida;?>"><small>Corte na linha pontilhada</small></p>
+		</div>
+		<div class="cabecalho">
+			<table class="tabela-topo">
+				<tr>
+					<td><img src="<?php echo $logo_embutido;?>"></td>
+					<td><?php echo $verificador;?></td>
+					<td><?php echo $linha_digitavel;?></td>
+				</tr>
+			</table>
+		</div>
+		<div class="ficha">
+			<table class="local">
+				<tr>
+					<th>Local de pagamento</th>
+					<th class="cinza">Vencimento </th>
+				</tr>
+				<tr>
+					<td><?php echo $local_pagamento;?></td>
+					<td class="cinza"><?php echo $vencimento;?></td>
+				</tr>
+			</table>
+			<table class="beneficiario">
+				<tr>
+					<th>Beneficiário</th>
+					<th>Agência / Código do Beneficiário</th>
+				</tr>
+				<tr>
+					<td><?php echo $beneficiario_nome;?></td>
+					<td><?php echo $agencia_codigo;?></td>
+				</tr>
+			</table>
+			<table class="data-doc">
+				<tr>
+					<th>Data do documento</th>
+					<th>Número do documento</th>
+					<th>Espécie doc.</th>
+					<th>Aceite</th>
+					<th>Data processamento</th>
+					<th>Nosso número</th>
+				</tr>
+				<tr>
+					<td><?php echo $data_documento;?></td>
+					<td><?php echo $numero_documento;?></td>
+					<td><?php echo $especie_doc;?></td>
+					<td><?php echo $aceite;?></td>
+					<td><?php echo $data_processamento;?></td>
+					<td><?php echo $nosso_numero;?></td>
+				</tr>
+			</table>
+			<table class="uso-banco">
+				<tr>
+					<th>Uso do banco</th>
+					<th>Carteira</th>
+					<th>Espécie</th>
+					<th>Quantidade</th>
+					<th>Valor</th>
+					<th>(=) Valor documento</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td><?php echo $carteira;?></td>
+					<td><?php echo $especie;?></td>
+					<td></td>
+					<td></td>
+					<td><?php echo $valor_documento;?></td>
+				</tr>
+			</table>
+			<table class="instrucoes">
+				<tr>
+					<td rowspan="5">
+						<div>
+							<label>Instruções (Instruções de responsabilidade do Beneficiário. Qualquer dúvida sobre este boleto, contate o beneficiário)</label>
+<?php foreach ($instrucoes as $linha) {?>
+							<p><?php echo $linha;?></p>
+<?php }?>
+						</div>
+					</td>
+					<td><label>(-) Desconto/Abatimentos</label></td>
+				</tr>
+				<tr>
+					<td><label>(-) Outras deduções</label></td>
+				</tr>
+				<tr>
+					<td><label>(+) Mora/Multa</label></td>
+				</tr>
+				<tr>
+					<td><label>(+) Outros acréscimos</label></td>
+				</tr>
+				<tr class="cinza">
+					<td><label>(=) Valor cobrado</label></td>
+				</tr>
+			</table>
+			<table class="pagador">
+				<tr>
+					<th>Pagador</th>
+				</tr>
+				<tr>
+					<td>
+						<p><?php echo $cliente_nome_cpf;?></p>
+						<p><span><?php echo $cliente_endereco;?></span><span>Cód. baixa</span></p>
+					</td>
+				</tr>
+			</table>
+			<p class="dica"><span>Sacador/Avalista</span><span><?php echo $sacador_avalista;?></span><span>Autenticação mecânica - Ficha de Compensação</span></p>
+		</div>
+		<div class="codigobarras">
+			<?php echo $codbarras_svg;?>
+		</div>
+		<div class="separador">
+			<p><img src="<?php echo $tesoura_embutida;?>"><small>Corte na linha pontilhada</small></p>
+		</div>
+	</div>
+</body>
+</html>

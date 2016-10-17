@@ -1,0 +1,559 @@
+
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+
+
+      --------------------------------------------------------------------
+                    ESPECIFICACOES TECNICAS DOS ARQUIVOS
+                      PAGAMENTO ELETRONICO DE TITULOS
+      --------------------------------------------------------------------
+
+      1.    - Caracteristicas do Arquivo Remessa CNAB240
+
+      1.2   - Informacoes Gerais
+
+      1.2.1 - Arquivo conterah os titulos a serem pagos.
+
+      1.2.2 - Pode ser remetido mais de um arquivo para  processamento  no
+              mesmo dia.
+
+
+
+      1.2.3 - LEIAUTE DO CNAB240
+      01. HEADER DE ARQUIVO   - REGISTRO 0
+
+      *-----------------------------------------------------------------*
+      !CAMPO                          !POSICAO! N !N  ! CONTEUDO    !NO-!
+      !                               !DE !ATE!DIG!DEC!             !TAS!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO BANCO NA COMPENSACAO !  1!  3!  3! - !  /001/      ! A !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !LOTE DE SERVICO                !  4!  7!  4! - ! 0000        ! 1 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !REGISTRO HEADER DE ARQUIVO     !  8!  8!  1! - ! 0           ! 2 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    !  9! 17!  9! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !TIPO DE INSCRICAO DA EMPRESA   ! 18! 18!  1! - !1-CPF, 2-CNPJ! 6 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  DE INSCRICAO DA EMPRESA     ! 19! 32! 14! - !NUMERICO     ! 6 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO CONVENIO NO BANCO    ! 33! 52! 20! - !ALFANUMERICO !6/7!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !AGENCIA MANTENEDORA DA CONTA   ! 53! 57!  5! - !NUMERICO     !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA AGENCIA  ! 58! 58!  1! - !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NUMERO DA CONTA CORRENTE       ! 59! 70! 12! - !NUMERICO     !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA CONTA    ! 71! 71!  1! - !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA AG/CONTA ! 72! 72!  1! - !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NOME DA EMPRESA                ! 73!102! 30! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NOME DO BANCO                  !103!132! 30! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0001/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !USO EXCLUSIVO FEBRABAN/CNAB    !133!142! 10! - !BRANCOS      !   !
+      !-----------------------------------------------------------------!
+      !CODIGO REMESSA / RETORNO       !143!143!  1! - !1-REM e 2-RET!   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DATA DE GERACAO DO ARQUIVO     !144!151!  8! - !NUM/DDMMAAAA/!   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !HORA DE GERACAO DO ARQUIVO     !152!157!  6! - !NUM /HHMMSS/ !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  SEQUENCIAL DO ARQUIVO       !158!163!  6! - !NUMERICO     !17 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N DA VERSAO DO LAYOUT DO ARQUIV!164!166!  3! - ! 030         ! 9 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DENSIDADE DE GRAVACAO DO ARQUIV!167!171!  5! - !NUMERICO/BPI/!   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !PARA USO RESERVADO DO BANCO    !172!191! 20! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !PARA USO RESERVADO DA EMPRESA  !192!211! 20! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!-----------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    !212!222! 11! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !IDENTIFICACAO  COBRANCA S/PAPEL!223!225!  3! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO DAS VANS         !226!228!  3! - !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !TIPO DE SERVICO                !229!230!  2! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGOS DAS OCORRENCIAS        !231!240! 10! - !BRANCOS      !   !
+      *-----------------------------------------------------------------*
+
+
+      01. HEADER DE LOTE  -  REGISTRO 1
+
+      *-----------------------------------------------------------------*
+      !CAMPO                          !POSICAO! N !N  ! CONTEUDO    !NO-!
+      !                               !DE !ATE!DIG!DEC!             !TAS!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO BANCO NA COMPENSACAO !  1!  3!  3! - !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !LOTE DE SERVICO                !  4!  7!  4! - !NUMERICO     ! 1 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !REGISTRO HEADER DE LOTE        !  8!  8!  1! - ! 1           ! 2 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !TIPO DA OPERACAO               !  9!  9!  1! - !C - CREDITO  ! 3 !
+      !-------------------------------!---!---!---!---!------------ !---!
+      !TIPO DE SERVICO                ! 10! 11!  2! - !NUMERICO     ! 4 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !FORMA DE LANCAMENTO            ! 12! 13!  2! - !NUMERICO     ! 5 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  DA VERSAO DO LAYOUT DO LOTE ! 14! 16!  3! - ! 020         !45 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    ! 17! 17!  1! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !TIPO DE INSCRICAO DA EMPRESA   ! 18! 18!  1! - !1-CPF, 2-CNPJ! 6 !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0002/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  DE INSCRICAO DA EMPRESA     ! 19! 32! 14! - !NUMERICO     ! 6 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO CONVENIO NO BANCO    ! 33! 52! 20! - !ALFANUMERICO !6/7!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !AGENCIA MANTENEDORA DA CONTA   ! 53! 57!  5! _ !NUMERICO     !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA AGENCIA  ! 58! 58!  1! - !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NUMERO DA CONTA CORRENTE       ! 59! 70! 12! _ !NUMERICO     !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA CONTA    ! 71! 71!  1! _ !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIFICADOR DA AG/CONTA ! 72! 72!  1! _ !ALFANUMERICO !6/8!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NOME DA EMPRESA                ! 73!102! 30! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !MENSAGEM                       !103!142! 40! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NOME DA RUA,AV.,PCA,ETC        !143!172! 30! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  DO LOCAL                    !173!177!  5! _ !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CASA,APTO,SALA,ETC             !178!192! 15! _ !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CIDADE                         !193!212! 20! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CEP                            !213!217!  5! - !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !COMPLEMENTO DO CEP             !218!220!  3! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !SIGLA DO ESTADO                !221!222!  2! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    !223!230!  8! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !COD. DAS OCORRENCIAS P/RETORNO !231!240! 10! - !ALFANUMERICO ! 14!
+      *-----------------------------------------------------------------*
+
+
+      02. DETALHE  -  REGISTRO 3  -  SEGMENTO J  /OBRIGATORIO/
+
+      *-----------------------------------------------------------------*
+      !CAMPO                          !POSICAO! N !N  ! CONTEUDO    !NO-!
+      !                               !DE !ATE!DIG!DEC!             !TAS!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO BANCO NA COMPENSACAO !  1!  3!  3! - !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !LOTE DE SERVICO                !  4!  7!  4! - !NUMERICO     ! 1 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !REGISTRO DE DETALHE            !  8!  8!  1! - ! 3           ! 2 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  SEQUENCIAL DO REGISTR NO LOT!  9! 13!  5! - !NUMERICO     !10 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0003/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !COD. DE SEGMENTO DO REG.DETALHE! 14! 14!  1! - ! J           !11 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !TIPO DE MOVIMENTO              ! 15! 15!  1! - !0-INC, 5-ALT !   !
+      !                               !   !   !   !   !9-EXCLUI     !12 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DE INSTRUCAO P/ALTERACAO! 16! 17!  2! - !NUMERICO     !12 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO BANCO DESTINO        ! 18! 20!  3! - !NUMERICO     ! B !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DA MOEDA                ! 21! 21!  1! - !NUMERICO     !29 !
+      !                               !   !   !   ! - !             ! B !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DIGITO VERIF. DO COD. DE BARRAS! 22! 22!  1! - !NUMERICO     ! B !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !VALOR IMPRESSO NO COD. DE BARRA! 23! 36! 12! 2 !NUMERICO     ! B !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !'CAMPO LIVRE' NO COD. DE BARRAS! 37! 61! 25! - !NUMERICO     ! B !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !NOME DO CEDENTE                ! 62! 91! 30! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DATA DO VENCIMENTO /NOMINAL/   ! 92! 99!  8! - !DDMMAAAA     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !VALOR DO TITULO /NOMINAL/      !100!114! 13! 2 !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !VALOR DO DESCONTO + ABATIMENTO !115!129! 13! 2 !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !VALOR DA MORA + MULTA          !130!144! 13! 2 !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !DATA DO PAGAMENTO              !145!152!  8! - !DDMMAAAA     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !VALOR DO PAGAMENTO             !153!167! 13! 2 !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !QUANTIDADE DA MOEDA            !168!182! 10! 5 !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !COD. DE REF. ATRIBUIDA P/SACADO!183!202! 20! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !N  DO DOC ATRIBUIDO PELO BANCO !203!222! 20! - !ALFANUMERICO !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    !223!230!  8! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !COD. DAS OCORRENCIAS P/RETORNO !231!240! 10! - !ALFANUMERICO !14 !
+      *-----------------------------------------------------------------*
+
+
+      06. TRAILER DE LOTE  -  REGISTRO  5
+
+      *-----------------------------------------------------------------*
+      !CAMPO                          !POSICAO! N !N  ! CONTEUDO    !NO-!
+      !                               !DE !ATE!DIG!DEC!             !TAS!
+      !-------------------------------!---!---!---!---!-------------!---!
+      !CODIGO DO BANCO NA COMPENSACAO !  1!  3!  3! - !NUMERICO     !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !LOTE DE SERVICO                !  4!  7!  4! - !NUMERICO     ! 1 !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0004/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !-------------------------------!---!---!---!---!-------------!---!
+      !REGISTRO TRAILER DE LOTE       !  8!  8!  1! - ! 5           ! 2 !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    !  9! 17!  9! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !QTDADE DE REGISTROS DO LOTE    ! 18! 23!  6! - !REG.TIP 1+3+5!   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !SOMATORIA DOS VALORES          ! 24! 41! 16! 2 !NUMERICO REG.!   !
+      !                               !   !   !   !   !TIP-3,SEGM-J !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !USO EXCLUSIVO FEBRABAN/CNAB    ! 42!230!189! - !BRANCOS      !   !
+      !-------------------------------!---!---!---!---!-------------!---!
+      !COD. DAS OCORRENCIAS P/RETORNO !231!240! 10! - !ALFANUMERICO !14 !
+      *-----------------------------------------------------------------*
+
+      *-----------------------------------------------------------------*
+      !    NOTAS        !   INFORMACOES COMPLEMENTARES                  !
+      !-----------------------------------------------------------------!
+      !/A/              ! Codigo fornecido pelo Banco Central!
+      !CODIGO DO BANCO  ! para identificacao do Banco                   !
+      !                 ! que esta recebendo ou enviando o arquivo,     !
+      !NA COMPENSACAO   ! do Banco Central do Brasil/.                  !
+      !                 ! Alteracao nas  especificacoes do Codigo  de   !
+      !                 ! , com o qual se firmou o -                    !
+      !                 ! contrato de prestacao de servicos             !
+      !-----------------------------------------------------------------!
+      !/B/              !Especificacoes do Codigo de Barras do Bloqueto !
+      !CODIGO DE BARRAS !de Cobranca-Ficha de  Compensacao /Modelo CADOC!
+      !                 !24044-4, Carta Circular N  2414, de 07.10.93,  !
+      !                 !do Banco Central do Brasil/.                   !
+      !                 !Alteracao nas  especificacoes do Codigo  de    !
+      !                 !Barras - Introducao  de Digito de Auto Confe-  !
+      !                 !rencia /Carta Circular N  2531, de 24.02.95/.  !
+      !-----------------!-----------------------------------------------!
+      !/01/             !Identifica um Lote de Servico.                 !
+      !LOTE             !Sequencial e nao deve ser repetido dentro do   !
+      !                 !arquivo.                                       !
+      !                 !As numeracoes 0000 e 9999 sao exclusivas para  !
+      !                 !o Header e Trailer do Arquivo respectivamente. !
+      !-----------------!-----------------------------------------------!
+      !/02/             !Identifica o tipo do Registro. Ver 4.0         !
+      !REGISTRO         !Composicao do Arquivo                          !
+      !-----------------!-----------------------------------------------!
+      !/03/             !Indica a operacao que devera ser realizada com !
+      !TIPO DE OPERACAO !os registros Detalhe do Lote.                  !
+      !                 !Deve constar apenas um tipo por Lote:          !
+      !                 ! C - Lancamento a Credito                      !
+      !-----------------!-----------------------------------------------!
+      !/4/              !Indica o tipo de servico que o lote contem :   !
+      !TIPO DE SERVICO  ! 98 - Pagamento Diversos.                      !
+      !-----------------!-----------------------------------------------!
+      !/5/              !Indica a forma de lancamento que o lote contem:!
+      !FORMA DE LANCA-  !                                               !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0005/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !MENTO            !                                               !
+      !                 ! 30 - Liquidacao de Titulos do proprio Banco   !
+      !                 ! 31 - Pagamento de Titulos em outros Bancos    !
+      !-----------------!-----------------------------------------------!
+      !/6/              !Identificacao da Empresa no Banco.             !
+      !EMPRESA          !Inscricao: Tipo e Numero /CPF ou CNPJ/, e/ou.  !
+      !                 !Convenio: Codigo do convenio Empresa/Banco,    !
+      !                 !          e/ou Conta Corrente                  !
+      !                 !Obs.: No registro header de arquivo pode ser da!
+      !                 !empresa "mae"do grupo ou da matriz. a identifi-!
+      !                 !cacao da  empresa  no registro header de lote  !
+      !                 !pode ser por empresa coligada ou por filial. a !
+      !                 !identificacao pode se repetir quando for unica !
+      !-----------------!-----------------------------------------------!
+      !/7/              !Identifica a Empresa no Banco para determinados!
+      !CONVENIO         !tipos de servicos. Observar as regras de preen-!
+      !                 !chimento abaixo no que se refere ao header  de !
+      !                 !servico/lote:                                  !
+      !                 !"9999999994444CCVVV  " /20 bytes/, onde:       !
+      !                 !                                               !
+      !                 !999999999 - codigo do convenio,numerico,alinha-!
+      !                 !            do a direita,preenchido com zeros a!
+      !                 !            esquerda.                          !
+      !                 !            Para servicos de pagamentos PGT  e !
+      !                 !            cobranca cedente eh obrigatorio    !
+      !                 !            Para servicos de CXQ e cobranca sa-!
+      !                 !            cada sera utilizado o codigo do MCI!
+      !                 !            eh facultativo.                    !
+      !                 !4444      - codigo do produto:                 !
+      !                 !            -cobranca cedente - 0014           !
+      !                 !            -cobranca sacada  - 0019           !
+      !                 !            -pagamento fornecedores-PGT - 0126 !
+      !                 !            -desconto de cheques - 0024        !
+      !                 !CC        - carteira de cobranca para o caso de!
+      !                 !            cobranca cedente - obrigatorio     !
+      !                 !VVV       - variacao da carteira de cobranca   !
+      !                 !            para o caso de cobranca cedente -  !
+      !                 !            obrigatorio.                       !
+      !                 !                                               !
+      !                 !As duas ultimas posicoes deixar em branco.     !
+      !                 !Para usuarios do sistema SAP R.3, informar os  !
+      !                 !campos acima apenas nas remessas de cobranca   !
+      !                 !cedente. Nos lotes de Credito em conta, DOC  ou!
+      !                 !pagamento eletronico de titulos, deixar obriga-!
+      !                 !toriamente em branco                           !
+      !-----------------!-----------------------------------------------!
+      !/8/              !Codigo da Agencia mantenedora da Conta e seu DV!
+      !CONTA CORRENTE   !Numero da Conta e seu DV.                      !
+      !                 !DV dos campos Agencia e Conta.                 !
+      !                 !Obs.: Para os bancos que utilizam duas posicoes!
+      !                 !para o DV /digito verificador/, preencher a 1  !
+      !                 !posicao no campo DV da conta e a 2  posicao no !
+      !                 !campo DV da agencia/conta.                     !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0006/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !-----------------!-----------------------------------------------!
+      !/9/              !Identifica o N  da Versao do Layout do Arquivo,!
+      !LEIAUTE          !composto de : Versao  - 2 digitos              !
+      !                 !              Release - 1 digito               !
+      !                 !Obs.: Somente podera ser modificado quando     !
+      !                 !houver alteracoes no header/trailer de arquivo !
+      !                 !e desde que aprovadas  pelo cnab.              !
+      !-----------------!-----------------------------------------------!
+      !/10/             !Numero de sequencia do registro no lote inicia-!
+      !N  DO REGISTRO   !do sempre em 1.                                !
+      !DETALHE          !                                               !
+      !-----------------!-----------------------------------------------!
+      !/11/             !Ver - COMPOSICAO DO ARQUIVO.                   !
+      !COD. DE SEGMENTO !                                               !
+      !-----------------!-----------------------------------------------!
+      !/12/             !TIPO: Indica o tipo de movimentacao que se     !
+      !MOVIMENTO        !destina :                                      !
+      !                 !  0 - Indica INCLUSAO                          !
+      !-----------------!-----------------------------------------------!
+      !/14/             !Campo utilizado no Retorno, para informacao das!
+      !OCORRENCIAS      !ocorrencias detectadas no processamento do ar- !
+      !                 !quivo Remessa, enviado pela empresa. Pode-se in!
+      !                 !formar ate 5 ocorrencias simultaneamente, cada !
+      !                 !uma codificada com dois digitos, cfe abaixo:   !
+      !                 !Codigos de Ocorrencia :                        !
+      !                 ! 00 - Credito ou Debito Efetuado               !
+      !                 ! 01 - Insuficiencia de Fundos - Debito Nao     !
+      !                 !      Efetuado                                 !
+      !                 ! 02 - Credito ou Debito Cancelado pelo         !
+      !                 !      Pagador/Credor                           !
+      !                 ! 03 - Debito Autorizado pela Agencia - Efetuado!
+      !                 ! HA - Lote Nao Aceito                          !
+      !                 ! HB - Inscricao da Empresa Invalida para o     !
+      !                 !      Contrato                                 !
+      !                 ! HC - Convenio com a Empresa Inexistente/      !
+      !                 !      Invalido para o Contrato                 !
+      !                 ! HD - Agencia/Conta da Empresa Inexistente/    !
+      !                 !      Invalida para o Contrato                 !
+      !                 ! HE - Tipo de Servico Invalido para o Contrato !
+      !                 ! HF - Conta Corrente da Empresa com Saldo
+      !                 !      Insuficiente                             !
+      !                 ! HG - Lote de servico fora de sequencia        !
+      !                 ! HH - Lote de servico invalido                 !
+      !                 ! AA - Controle Invalido                        !
+      !                 ! AB - Tipo de Operacao Invalido                !
+      !                 ! AC - Tipo de Servico Invalido                 !
+      !                 ! AD - Forma de Lancamento Invalida             !
+      !                 ! AE - Tipo/Numero de Inscricao Invalido        !
+      !                 ! AF - Codigo de Convenio Invalido              !
+      !                 ! AG - Agencia/Conta Corrente/DV Invalido       !
+      !                 ! AH - N  Sequencial do Registro no Lote        !
+      !                 !      Invalido                                 !
+      !                 ! AI - Codigo de Segmento de Detalhe Invalido   !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0007/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !                 ! AJ - Tipo de Movimento Invalido               !
+      !                 ! AK - Codigo da Camara de Compensacao do Banco !
+      !                 !      do Favorecido Depositario Invalido       !
+      !                 ! AL - Codigo do Banco do Favorecido ou         !
+      !                 !      Depositario Invalido                     !
+      !                 ! AM - Agencia Mantenedora da Conta C/C do      !
+      !                 !      Favorecido Invalida                      !
+      !                 ! AN - Conta Corrente/DV do Favorecido Invalido !
+      !                 ! AO - Nome do Favorecido nao Informado         !
+      !                 ! AP - Data Lancamento Invalida                 !
+      !                 ! AQ - Tipo/Quantidade da Moeda Invalido        !
+      !                 ! AR - Valor do Lancamento Invalido             !
+      !                 ! AS - Aviso ao Favorecido - Identificacao      !
+      !                 !      Invalida                                 !
+      !                 ! AT - Tipo/NUmero de Inscricao do Favorecido   !
+      !                 !      Invalido                                 !
+      !                 ! AU - Logradouro do Favorecido nao Informado   !
+      !                 ! AV - N  do Local do Favorecido nao Informado  !
+      !                 ! AW - Cidade do Favorecido nao Informada       !
+      !                 ! AX - CEP/Complemento do Favorecido Invalido   !
+      !                 ! AY - Sigla do Estado do Favorecido Invalida   !
+      !                 ! AZ - Codigo/Nome do Banco Depositario Invalido!
+      !                 ! BA - Codigo/Nome da Agencia Depositaria nao   !
+      !                 !      Informado                                !
+      !                 ! BB - Seu NUmero Invalido                      !
+      !                 ! BC - Nosso NUmero Invalido                    !
+      !                 ! BD - Confirmacao de Pagamento Agendado        !
+      !                 ! BE - CPF/CNPJ do creditado nao corresponde a  !
+      !                 !      agencia/conta informadas                 !
+      !                 ! CA - Codigo de barras - codigo do banco       !
+      !                 !      invalido                                 !
+      !                 ! CB - Codigo de barras - codigo da moeda       !
+      !                 !      invalido                                 !
+      !                 ! CC - Codigo de barras - digito verificador    !
+      !                 !      geral invalido                           !
+      !                 ! CD - Codigo de barras - valor do titulo       !
+      !                 !      invalido                                 !
+      !                 ! CE - Codigo de barras - campo livre invalido  !
+      !                 ! CF - Valor do documento invalido              !
+      !                 ! CG - Valor do abatimento invalido             !
+      !                 ! CH - Valor do desconto invalido               !
+      !                 ! CI - Valor de mora invalido                   !
+      !                 ! CJ - Valor da multa invalido                  !
+      !                 ! CK - Valor do IR invalido                     !
+      !                 ! CL - Valor do ISS invalido                    !
+      !                 ! CM - Valor do IOF invalido                    !
+      !                 ! CN - Valor de outras deducoes invalido        !
+      !                 ! CO - Valor de outros acrescimos invalido      !
+      !                 ! TA - Lote nao Aceito - Totais do Lote com     !
+      !                 !      Diferenca.                               !
+      !-----------------!-----------------------------------------------!
+      !/17/             !Evoluir um numero sequencial a cada Header de  !
+      !SEQUENCIA        !arquivo.                                       !
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0008/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI
+                                     INTERCAMBIO ELETRONICO DE DADOS - 00005
+                                                      PADRAO CNAB240 - 00002
+                                          INFORMACOES SOBRE SISTEMAS - 99996
+           ESPECIFICACOES TECNICAS - PAGAMENTO ELETRONICO DE TITULOS - 00001
+      ----------------------------------------------------------------------
+
+      !-----------------!-----------------------------------------------!
+      !/29/             !09 - REAL.                                     !
+      !CODIGO DA MOEDA  !                                               !
+      !-----------------------------------------------------------------!
+      !/45/            !Identifica o N  da Versao do Layout do Lote,    !
+      !LEIAUTE DO LOTE !composto de :                                   !
+      !                ! Versao  - 2 digitos                            !
+      !                ! Release - 1 digito.                            !
+      !                !Obs.: Somente podera ser modificado quando      !
+      !                !houver alteracao nos lotes de servico e desde   !
+      !                !que aprovadas pelo CNAB                         !
+      !----------------!------------------------------------------------!
+      !/54/            !Devera conter o/s/ codigos/s/ da ocorrencia do  !
+      !CODIGO DA OCOR- !sacado /NOTA 44/ a/s/ qual/is/ o cedente nao    !
+      !RENCIA DO SACADO!concorda. Somente sera utilizado para o codigo  !
+      !                !de movimento 30 /NOTA 20/.                      !
+      *-----------------------------------------------------------------*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ----------------------------------------------------------------------
+      AREA  056/0005-20021257, DE 18.03.2002                       0009/0009
+      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI      IMPRESSO EM 30-APR-2002, 14:18:42, POR F0305510-ALBERTO FERREIRA BRI

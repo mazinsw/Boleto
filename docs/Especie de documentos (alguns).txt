@@ -1,0 +1,31 @@
+01 - Aluguel 
+02 - Apólice de seguro - AS 
+03 - Cheque - CH 
+04 - Contrato - C 
+05 - Contribuição Confederativa - CC 
+06 - Contribuição/Seguros - CS 
+07 - Dívida Ativa do Estado - DAE 
+08 - Dívida Ativa do Município - DAM 
+09 - Dívida Ativa da União - DAU 
+10 - Duplicata Mercantil/Indicação - DMI 
+11 - Duplicata Mercantil - DM 
+12 - Duplicata Rural - DR 
+13 - Duplicata de Serviço - DS 
+14 - Duplicata de Serviço/Indicação - DSI 
+15 - Fatura - F 
+16 - Letra de Câmbio - LC 
+17 - Mensalidade Escolar - ME 
+18 - Nota de Crédito Comercial - NCC 
+19 - Nota de Crédito de Exportação - NCE 
+20 - Nota de Crédito Insdustrial - NCI 
+21 - Nota de Crédito Rural - NCR 
+22 - Nota de Débito - NT 
+23 - Nota Promissória - NP 
+24 - Nota Promissória Rural 
+25 - Nota de Seguro - NS 
+26 - Outros 
+27 - Parcela de Consórcio - PC 
+28 - Recibo - RC 
+29 - Triplicata Mercantil 
+30 - Triplicata de Serviço 
+31 - Warrant
